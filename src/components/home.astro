@@ -1,0 +1,83 @@
+---
+import { Image } from 'astro:assets';
+import photoImg from '../assets/PHOTO.png'; 
+const email = "aldispttga@gmail.com";
+const whatsapp = "085 156 701 623";
+
+---
+
+<!-- 
+  RESPONSIVE GRID SYSTEM:
+  - Default: Single column layout on mobile to prevent squishing text.
+  - min-width 768px (md): Transitions into a balanced 12-column split.
+  - Content shifts orders: Visual asset is stacked underneath text on mobile, 
+    but correctly returns to the left panel on desktops.
+-->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-8 items-center w-full py-6 md:py-16 mt-10 md:mt-0">
+  
+  <!-- LEFT COLUMN: VISUAL PANEL + FLOATING LABELS -->
+  <div class="md:col-span-5 flex justify-center md:justify-start order-2 md:order-1 relative w-full px-4 sm:px-0">
+    <div class="relative w-full max-w-[280px] sm:max-w-[340px] md:max-w-full z-10 overflow-hidden">
+      <Image 
+        src={photoImg} 
+        alt="Aldi Saputra" 
+        class="w-full h-auto object-contain drop-shadow-[0_15px_30px_rgba(0,0,0,0.6)]"
+        priority
+      />
+    </div>
+    <div class="absolute -bottom-1 left-0 right-0 h-40 bg-gradient-to-t from-brand-bg via-brand-bg/80 to-transparent z-20 pointer-events-none"></div>
+
+    <!-- 
+      RESPONSIVE HARDWARE TAGS:
+      - Uses fluid sizing utilities (`text-[10px] sm:text-xs`).
+      - Scaled down absolute tracking offsets (`-right-2 sm:-right-5`) to guarantee they stay pinned to the body bounding box without clipping the viewport boundaries.
+    -->
+    <!-- Figma Label -->
+    <div class="absolute top-[8%] -right-2 sm:-right-5 rotate-[6deg] z-20 flex items-center gap-1.5 bg-brand-card/85 border border-brand-cyan/30 text-white text-[10px] sm:text-xs font-medium px-2.5 sm:px-4 py-1.5 sm:py-2 rounded-full backdrop-blur-md shadow-lg select-none">
+      <span class="text-orange-400">❖</span> Figma <span class="text-slate-500 text-[9px] ml-0.5">✕</span>
+    </div>
+
+    <!-- Astro Label -->
+    <div class="absolute top-[42%] -left-4 sm:-left-[8%] -rotate-[4deg] z-0 flex items-center gap-1.5 bg-brand-card/60 border border-brand-cyan/20 text-white text-[10px] sm:text-xs font-medium px-2.5 sm:px-4 py-1.5 sm:py-2 rounded-full backdrop-blur-md shadow-md select-none">
+      <span class="text-purple-400">🚀</span> Astro <span class="text-slate-600 text-[9px] ml-0.5">✕</span>
+    </div>
+
+    <!-- Tailwind Label -->
+    <div class="absolute bottom-[18%] -right-3 sm:-right-6 rotate-[3deg] z-20 flex items-center gap-1.5 bg-brand-card/90 border border-brand-cyan/40 text-white text-[10px] sm:text-xs font-medium px-2.5 sm:px-4 py-1.5 sm:py-2 rounded-full backdrop-blur-md shadow-xl select-none">
+      <span class="text-cyan-400">≈</span> Tailwind <span class="text-slate-500 text-[9px] ml-0.5">✕</span>
+    </div>
+  </div>
+
+  <!-- RIGHT COLUMN: LIQUID TYPOGRAPHY PANEL -->
+  <div class="md:col-span-7 flex flex-col justify-center text-left md:pl-6 lg:pl-12 order-1 md:order-2">
+    
+    <!-- Fluid typography clamps text scaling cleanly to protect text boundaries -->
+    <h1 class="font-display text-5xl sm:text-7xl lg:text-[110px] text-brand-cyan tracking-wide leading-none uppercase">
+      Aldi Saputra
+    </h1>
+    <h2 class="font-display text-3xl sm:text-4xl lg:text-5xl text-brand-dark-cyan tracking-wide uppercase mt-1 mb-5 md:mb-6">
+      Dwi Rangga
+    </h2>
+
+    <h3 class="font-sans font-medium text-base sm:text-lg lg:text-2xl text-slate-100 mb-4 md:mb-5">
+      Scriptwriter, Graphic Designer & Web Developer
+    </h3>
+
+    <p class="font-sans font-light text-slate-300 text-xs sm:text-sm lg:text-base leading-relaxed max-w-xl mb-6 md:mb-8">
+      A Broadcasting student specializing in creative narrative design and digital 
+      media development. I bridge the gap between technical programming 
+      logic and visual storytelling to deliver engaging, user-centered 
+      interactive digital experiences.
+    </p>
+
+    <div>
+      <a 
+        href="/about" 
+        class="inline-flex items-center gap-2 bg-brand-cyan text-brand-bg font-bold font-sans tracking-wide px-5 sm:px-7 py-3 sm:py-3.5 rounded-lg text-xs sm:text-sm lg:text-base hover:bg-[#3ec4e0] active:translate-y-0.5 transition-all duration-150 shadow-[0_4px_0_0_#03141a]"
+      >
+        More Detail <span>&gt;</span>
+      </a>
+    </div>
+  </div>
+
+</div>

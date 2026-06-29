@@ -1,0 +1,113 @@
+---
+// src/pages/skills.astro
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+
+// Left Column: Technical Stack
+const techSkills = [
+  { name: "Astro Build", level: "90%" },
+  { name: "Tailwind CSS", level: "95%" },
+  { name: "Figma (UI/UX)", level: "85%" },
+  { name: "Linux / OS Management", level: "80%" }
+];
+
+// Right Column: Soft Skills
+const softSkills = [
+  { name: "Communication", level: "90%" },
+  { name: "Creativity", level: "90%" },
+  { name: "Problem Solving", level: "85%" },
+  { name: "Time Management", level: "85%" },
+  { name: "Adaptability", level: "80%" },
+  { name: "Teamwork", level: "85%" }
+];
+---
+
+<Layout title="Skills">
+  <Navbar />
+  
+  <main class="flex-grow flex items-center w-full max-w-6xl mx-auto px-6 relative z-10 py-12 mt-10 md:mt-0">
+    <div class="w-full animate-fade-in-up">
+      
+      <!-- Section Header -->
+      <div class="mb-12 text-left md:pl-4">
+        <span class="text-xs font-semibold uppercase tracking-widest text-brand-cyan block mb-2">02 // Capability</span>
+        <h1 class="font-display text-5xl md:text-7xl text-white tracking-wide uppercase leading-none">
+          My Skills
+        </h1>
+      </div>
+
+      <!-- Two-Column Grid: Symmetrical Boxes -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-start font-sans">
+        
+        <!-- BOX 1: TECHNICAL STACK CONTAINER -->
+        <div class="relative bg-white/[0.03] border border-white/10 rounded-[2.5rem] p-8 md:p-12 backdrop-blur-xl shadow-[0_25px_50px_-12px_rgba(0,0,0,0.5)]">
+          <div class="absolute -top-10 -left-10 w-40 h-40 bg-brand-cyan/10 rounded-full blur-3xl pointer-events-none"></div>
+          
+          <h3 class="font-display text-3xl text-white tracking-wider uppercase mb-8 border-b border-slate-700/50 pb-3">
+            Technical Stack
+          </h3>
+          
+          <div class="space-y-6">
+            {techSkills.map(skill => (
+              <div class="space-y-2">
+                <div class="flex justify-between text-xs sm:text-sm tracking-wide">
+                  <span class="text-slate-200 font-medium flex items-center gap-2">
+                    <span class="text-[10px] text-brand-cyan">●</span> {skill.name}
+                  </span>
+                  <span class="text-brand-cyan font-bold">{skill.level}</span>
+                </div>
+                <div class="w-full h-2 bg-brand-bg/80 rounded-full overflow-hidden p-[1px] border border-white/5">
+                  <div class="h-full bg-brand-cyan rounded-full shadow-[0_0_12px_#49d1ec]" style={`width:${skill.level};`} />
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <!-- BOX 2: SOFT SKILLS CONTAINER (Mirrors Box 1 exactly) -->
+        <div class="relative bg-white/[0.03] border border-white/10 rounded-[2.5rem] p-8 md:p-12 backdrop-blur-xl shadow-[0_25px_50px_-12px_rgba(0,0,0,0.5)]">
+          <div class="absolute -top-10 -left-10 w-40 h-40 bg-brand-cyan/10 rounded-full blur-3xl pointer-events-none"></div>
+          
+          <h3 class="font-display text-3xl text-white tracking-wider uppercase mb-8 border-b border-slate-700/50 pb-3">
+            Soft Skills
+          </h3>
+          
+          <div class="space-y-6">
+            {softSkills.map(skill => (
+              <div class="space-y-2">
+                <div class="flex justify-between text-xs sm:text-sm tracking-wide">
+                  <span class="text-slate-200 font-medium flex items-center gap-2">
+                    <span class="text-[10px] text-brand-cyan">●</span> {skill.name}
+                  </span>
+                  <span class="text-brand-cyan font-bold">{skill.level}</span>
+                </div>
+                <div class="w-full h-2 bg-brand-bg/80 rounded-full overflow-hidden p-[1px] border border-white/5">
+                  <div class="h-full bg-brand-cyan rounded-full shadow-[0_0_12px_#49d1ec]" style={`width:${skill.level};`} />
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </main>
+</Layout>
+
+<style>
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-fade-in-up {
+    animation: fadeInUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+</style>

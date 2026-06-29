@@ -1,1 +1,23 @@
 @import "tailwindcss";
+
+@import "tailwindcss";
+
+@theme {
+  /* Register your custom theme colors */
+  --color-brand-bg: #041C24;
+  --color-brand-card: #082834;
+  --color-brand-cyan: #49D1EC;
+  --color-brand-dark-cyan: #1E7287;
+
+  /* Register your exact font pairings */
+  --font-display: "Bebas Neue", sans-serif;
+  --font-sans: "Poppins", sans-serif;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+    display: none;
+}
+.scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}

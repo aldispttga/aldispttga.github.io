@@ -1,0 +1,78 @@
+---
+// src/pages/about.astro
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+---
+
+<Layout title="About Me">
+  <Navbar />
+  
+  <main class="flex-grow flex items-center w-full max-w-5xl mx-auto px-6 relative z-10 py-12 mt-10 md:mt-0">
+    <!-- Main Content Card with slide-up animation entry -->
+    <div class="w-full bg-brand-card/40 border border-brand-cyan/10 rounded-2xl p-8 md:p-12 backdrop-blur-md animate-fade-in-up">
+      
+      <!-- Page Header Section -->
+      <div class="mb-10">
+        <span class="text-xs font-semibold uppercase tracking-widest text-brand-cyan block mb-2">01 // Profile</span>
+        <h1 class="font-display text-5xl md:text-7xl text-white tracking-wide uppercase leading-none">
+          About Me
+        </h1>
+      </div>
+
+      <!-- Core Content Layout Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-8 font-sans items-start">
+        
+        <!-- Main Description Paragraph (Using the exact text from image_cdf23d.png) -->
+        <div class="md:col-span-7 text-slate-200 text-sm md:text-base font-light leading-relaxed tracking-wide space-y-4">
+          <p class="text-lg md:text-xl font-normal text-white leading-snug">
+            A Broadcasting student specializing in creative narrative design and digital media development.
+          </p>
+          <p>
+            Proficient in crafting compelling, structured scripts while simultaneously building modern, high-performance web ecosystems for the creative industry. I bridge the gap between technical programming logic and visual storytelling to deliver engaging, user-centered interactive digital experiences.
+          </p>
+        </div>
+
+        <!-- Highlights / Focus Areas Sidebar -->
+        <div class="md:col-span-5 space-y-4">
+          <div class="bg-brand-bg/60 border border-brand-cyan/5 p-5 rounded-xl">
+            <h4 class="font-display text-xl text-brand-cyan tracking-wider uppercase mb-1">
+              Creative Industry
+            </h4>
+            <p class="text-xs text-slate-400 font-light leading-relaxed">
+              Crafting structured, compelling scripts and digital systems designed directly to fit modern media production workflows.
+            </p>
+          </div>
+
+          <div class="bg-brand-bg/60 border border-brand-cyan/5 p-5 rounded-xl">
+            <h4 class="font-display text-xl text-brand-cyan tracking-wider uppercase mb-1">
+              Web Ecosystems
+            </h4>
+            <p class="text-xs text-slate-400 font-light leading-relaxed">
+              Developing high-performance user interfaces using clean logic, semantic code architectures, and modern frameworks.
+            </p>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </main>
+</Layout>
+
+<!-- View Transitions Animation Styles -->
+<style>
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-fade-in-up {
+    animation: fadeInUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+</style>

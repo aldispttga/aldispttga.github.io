@@ -1,0 +1,58 @@
+---
+import { Image } from 'astro:assets';
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+
+// Import Assets
+import mockupImg from '../assets/design/Mockup.webp';
+import bannerImg from '../assets/design/Banner.webp';
+import posterImg from '../assets/design/Poster.webp';
+import c1 from '../assets/design/carousel/1.webp';
+import c2 from '../assets/design/carousel/2.webp';
+import c3 from '../assets/design/carousel/3.webp';
+import c4 from '../assets/design/carousel/4.webp';
+import c5 from '../assets/design/carousel/5.webp';
+import c6 from '../assets/design/carousel/6.webp';
+import c7 from '../assets/design/carousel/7.webp';
+import c8 from '../assets/design/carousel/8.webp';
+
+const projects = [
+  { category: "Mockup Branding", name: "Leiden Homes Co.", description: "Comprehensive brand identity design including logo construction, typography, and color palette development.", teknik: "Logo, Grid, Color", tools: "Figma", image: mockupImg },
+  { category: "Banner Design", name: "The Hardest Part of Letting You Go", description: "Banner design for print media focused on emotional storytelling and readability.", teknik: "Typography, Layout", tools: "Canva", image: bannerImg },
+  { category: "Poster Design", name: "Limited Offer — Pork Teriyaki Poster", description: "A promotional food poster designed for a 'Limited Offer' campaign, featuring clear pricing and branding.", teknik: "Hierarchy, Layout", tools: "Figma", image: posterImg },
+  { category: "Carousel Design", name: "The Art of Solitude", description: "A social media carousel series exploring the balance between loneliness and solitude.", teknik: "Storytelling, UI", tools: "Figma", slides: [c1, c2, c3, c4, c5, c6, c7, c8] }
+];
+---
+
+<Layout title="Portfolio">
+  <Navbar />
+  <main class="min-h-screen bg-brand-bg text-white pt-32 pb-20 px-6 max-w-4xl mx-auto">
+    <h1 class="text-5xl font-bold uppercase text-center mb-16">Portfolio</h1>
+
+    {projects.map((p) => (
+      <div class="mb-20">
+        {/* Render Image or Carousel */}
+        <div class="mb-8">
+          {p.category === "Carousel Design" ? (
+            <div class="flex gap-4 overflow-x-auto pb-4 scrollbar-hide">
+              {p.slides.map((s) => <Image src={s} alt="slide" class="h-64 w-auto rounded-xl" />)}
+            </div>
+          ) : (
+            <Image src={p.image} alt={p.name} class="w-full rounded-2xl" />
+          )}
+        </div>
+
+        {/* Render Text Content */}
+        <div>
+          <h3 class="text-brand-cyan uppercase tracking-widest text-sm">{p.category}</h3>
+          <h2 class="text-3xl font-bold uppercase my-2">{p.name}</h2>
+          <p class="text-slate-400">{p.description}</p>
+          <div class="mt-4 text-sm text-slate-300">
+            <p><strong>Techniques:</strong> {p.teknik}</p>
+            <p><strong>Tools:</strong> {p.tools}</p>
+          </div>
+        </div>
+      </div>
+    ))}
+  </main>
+</Layout>
